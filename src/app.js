@@ -5,20 +5,20 @@ import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
 window.onload = function() {
-  //write your code here
-  console.log("Hello Rigo from the console!");
-
   // Listas de pronombres, adjetivos y sustantivos
   let pronoun = ['the', 'our'];
   let adj = ['great', 'big'];
   let noun = ['jogger', 'racoon'];
 
-  // Generar y mostrar todas las combinaciones posibles
-  for (let p of pronoun) {
-    for (let a of adj) {
-      for (let n of noun) {
-        console.log(`${p}${a}${n}.com`);
-      }
-    }
+  // Generar un nombre de dominio aleatorio
+  let randomPronoun = pronoun[Math.floor(Math.random() * pronoun.length)];
+  let randomAdj = adj[Math.floor(Math.random() * adj.length)];
+  let randomNoun = noun[Math.floor(Math.random() * noun.length)];
+  let randomDomain = `${randomPronoun}${randomAdj}${randomNoun}.com`;
+
+  // Insertar el nombre de dominio en el elemento <p> del HTML
+  let paragraph = document.querySelector(".alert.alert-warning.mt-4");
+  if (paragraph) {
+    paragraph.innerHTML = `<b>${randomDomain}</b>`;
   }
 };
